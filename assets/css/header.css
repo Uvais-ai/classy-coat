@@ -255,7 +255,7 @@ video {
   border-radius: 3rem;
   text-transform: capitalize;
   color: var(--color-white);
-  background-color: var(--color-blue-600);
+  background-color: #8B4513;
   box-shadow: var(--shadow-medium);
   transition: all 0.3s ease-in-out;
 }

@@ -198,6 +198,7 @@ article img {
   right: 30px;
 }
 
+
 /* Slider Styling */
 .slider-wrapper {
   width: 100%;
@@ -323,29 +324,24 @@ article img {
   margin-left: -400%;
 }
 
-/*---- TABLET ----*/
-@media only screen and (max-width: 850px) and (min-width: 450px) {
-  .slider-wrapper {
-    border-radius: 0;
+@media (max-width: 768.98px) {
+  .slider-wrapper{
+    width: 90%;
+    margin: auto;
   }
 }
 
-/*---- MOBILE----*/
-@media only screen and (max-width: 450px) {
+@media only screen and (max-width: 450.98px) {
   .slider-wrapper {
-    border-radius: 0;
+    height: 60vh;
+    object-fit: contain;
   }
 
   .slider-wrapper .info {
     opacity: 0;
   }
 }
-/* 
-@media only screen and (min-width: 850px) {
-  body {
-    padding: 0 80px;
-  }
-} */
+
 
 /* Third */
 body {
@@ -359,7 +355,6 @@ body {
 
 .hero-section h1 {
   color: #8B4513;
-  /* Brown color */
   font-weight: bold;
 }
 
@@ -385,6 +380,10 @@ body {
 }
 
 @media (max-width: 991.98px) {
+  .hero-section .img-fluid {
+    margin: auto;
+  }
+
   .hero-section {
     text-align: center;
   }
@@ -413,17 +412,11 @@ body {
 
   .hero-section .img-fluid {
     margin-top: 20px;
+    margin: auto;
   }
 }
 
 /* Four */
-body,
-html {
-  height: 100%;
-  margin: 0;
-  font-family: Arial, sans-serif;
-}
-
 .hero-image {
   background-image: url(/assets/images/d3a535ebb6b9aa1e3667f84f5670fe3d.jpeg);
   background-repeat: no-repeat;
@@ -438,12 +431,25 @@ html {
   text-align: center;
   color: white;
   position: relative;
+  overflow: hidden;
+}
+
+.hero-image::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(210, 176, 104, 0.5); /* Add the rgba overlay */
+  border-radius: 20px;
+  z-index: 1;
 }
 
 .hero-text {
   padding: 0 20px;
   position: relative;
-  background: rgba(red, green, blue, alpha);
+  z-index: 2; /* Ensure text is above the overlay */
 }
 
 .hero-text h1 {
@@ -471,8 +477,16 @@ html {
   color: white;
 }
 
-/* Media Queries */
+@media (max-width: 1275px) {
+  .hero-image{
+    width: 90%;
+  }
+}
 @media (max-width: 768px) {
+  .hero-image{
+    width: 90%;
+  }
+
   .hero-text h1 {
     font-size: 20px;
   }
@@ -491,6 +505,26 @@ html {
     font-size: 12px;
   }
 }
+
+@media (max-width: 320px) {
+  .hero-text {
+    padding: 0 10px;
+  }
+  
+  .hero-text h1 {
+    font-size: 16px;
+  }
+
+  .hero-text p {
+    font-size: 10px;
+  }
+
+  .hero-text button {
+    padding: 8px 20px;
+    font-size: 12px;
+  }
+}
+
 
 /* Five */
 .swiper-slide {
@@ -529,7 +563,6 @@ html {
 /* six */
 .service-box {
   padding: 20px;
-  border: 1px solid #e0e0e0;
   border-radius: 10px;
   transition: transform 0.3s;
 }
@@ -666,71 +699,141 @@ html {
 }
 
 /* contact */
-.bg-login-image {
-  background: url(/assets/images/WhatsApp\ Image\ 2024-05-20\ at\ 11.55.13_21d339ad.jpg);
-  background-position: center;
-  background-size: cover;
+.contact-form {
+  background-color: #f8c19a;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  
 }
 
-.custom-input {
-  font-size: .8rem;
-  border-radius: 10rem;
-  padding: 1.5rem 1rem;
+.contact-form h2 {
+  margin-bottom: 20px;
+  font-size: 2rem;
+  color: #7f4f26;
 }
 
-.custom-control-label {
-  position: relative;
-  margin-bottom: 0;
-  vertical-align: top;
+.form-control{
+  background-color: #f8c19a;
+  border: 1px solid #000;
 }
 
-.custom-control-label::before {
-  position: absolute;
-  top: .25rem;
-  left: -1.5rem;
-  display: block;
-  width: 1rem;
-  height: 1rem;
-  pointer-events: none;
-  content: "";
-  background-color: #fff;
-  border: #b7b9cc solid 1px;
+.contact-form label {
+  margin-top: 10px;
+  font-size: 1rem;
+  color: #7f4f26;
 }
 
-.custom-control-label {
-  color: #858796;
+.btn-primary {
+  background-color: #7f4f26;
+  border: none;
 }
 
-form.user .btn-user {
-  font-size: .8rem;
-  border-radius: 10rem;
-  padding: .75rem 1rem;
+.btn-primary:hover {
+  background-color:  #5f3b1b;
 }
 
-.btn-google {
-  color: #fff;
-  background-color: #ea4335;
-  border-color: #fff;
+.it_contact {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  padding: 20px;
+  box-sizing: border-box;
 }
 
-.btn-google:hover {
-  color: #fff;
-  background-color: #e12717;
-  border-color: #e6e6e6;
+.contact-image {
+  flex: 2;
+  overflow: hidden;
+  max-height: 100vh;
 }
 
-.btn-facebook {
-  color: #fff;
-  background-color: #3b5998;
-  border-color: #fff;
+.contact-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px 10px 10px 10px;
 }
 
-.btn-facebook:hover {
-  color: #fff;
-  background-color: #30497c;
-  border-color: #e6e6e6;
+.contact-form {
+  flex: 1;
+  background-color: #d7a87d;
+  padding: 30px;
+  border-radius: 30px;
+  margin-left: -80px;
+  box-sizing: border-box;
 }
 
-.form-bg {
-  background-color: #F8C19A;
+.contact-form h3 {
+  margin-top: 0;
+  color: #5a3d29;
+  font-size: 24px;
+  text-align: center;
+}
+
+.it_contact form {
+  display: flex;
+  flex-direction: column;
+}
+
+.it_contact label {
+  margin: 10px 0 5px;
+  color: #5a3d29;
+}
+
+input.form-control, textarea.form-control {
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #5a3d29;
+  border-radius: 10px;
+  font-size: 16px;
+  background: transparent;
+}
+
+.it_contact button {
+  background: #843F0F;
+  color: #ffffff !important;
+  margin: 15px;
+  padding: 7px 25px;
+  transition: 0.3s;
+  font-weight: 700;
+  font-size: 14px;
+  font-family: "Gill Sans", sans-serif;
+  border-radius: 30px;
+  border: 0px solid #f1f1f1 !important;
+  width: 50%;
+}
+
+.it_contact button:hover {
+  background-color: #E8C19F;
+  color: #843F0F !important;
+}
+
+
+@media (max-width: 768px) {
+  .it_contact {
+      flex-direction: column;
+      height: auto;
+  }
+
+  .contact-image {
+      flex: none;
+      width: 100%;
+      max-height: 50vh;
+  }
+
+  .contact-image img {
+      border-radius: 10px 10px 0 0;
+  }
+
+  .contact-form {
+      flex: none;
+      width: 100%;
+      border-radius: 30px;
+      margin-left: 0;
+      padding: 20px;
+      margin-top: 30px;
+  }
 }
